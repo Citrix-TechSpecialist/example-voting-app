@@ -1,0 +1,9 @@
+[submodule "vote"]
+	path = vote
+	url = https://github.com/MayankTahil/vote.git
+[submodule "result"]
+	path = result
+	url = https://github.com/MayankTahil/result.git
+[submodule "worker"]
+	path = worker
+	url = https://github.com/MayankTahil/worker.git
