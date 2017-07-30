@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: vote
+  name: vote
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: vote
+    spec:
+      containers:
+      - args:
+        - python
+        - app.py
+        image: mayankt/vote
+        name: vote
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+status: {}
