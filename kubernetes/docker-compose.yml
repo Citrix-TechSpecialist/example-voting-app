@@ -2,7 +2,7 @@ version: "3"
 
 services:
   vote:
-    image: mayankt/vote
+    image: mayankt/vote:master
     command: python app.py
     ports:
       - "5000:80"
@@ -11,7 +11,7 @@ services:
       - back-tier
 
   result:
-    image: mayankt/vote
+    image: mayankt/result:master
     command: nodemon --debug server.js
     ports:
       - "5001:80"
@@ -21,7 +21,7 @@ services:
       - back-tier
 
   worker:
-    image: mayankt/worker
+    image: mayankt/worker:master
     networks:
       - back-tier
 
