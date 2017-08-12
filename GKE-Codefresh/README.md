@@ -38,8 +38,7 @@ Operations Overview
 
 ![Operations diagram](./images/overview.png)
 
-In this repository folder **GKE-setup** there are sub folders for each microservice holding the `deployment.yaml`, `service.yaml`, and `codefresh.yaml` (for the managed repositories). The combination of all three will define your pipeline in Codefresh and provide deployment instructions on how to deploy your services in GKE.
-
+In this repository folder [**GKE-setup**](./GKE-setup) there are sub folders for each microservice holding the `deployment.yaml`, `service.yaml`, and `codefresh.yaml` (for the managed repositories and submodules [vote](../vote), [worker](../worker), and [result](../result)). The combination of all services in this directory will define your pipeline in Codefresh and provide deployment instructions on how to deploy your services in GKE.
 
 Instructions
 ----
@@ -48,7 +47,7 @@ Instructions
 
 `kubectl create -f db-data-persistentvolumeclaim.yaml`
   > [db-data-persistentvolumeclaim.yaml](./db/persistentvolumeclaim.yaml) are the contents of the file for reference.
-  Note adding of [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is not supported in CodeFresh UI at the time of writing, hence the manual kubectl command above needs to be issued as a pre-requisite.
+ Adding of a [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is not supported in CodeFresh UI at the time of writing, hence the manual kubectl command above needs to be issued as a pre-requisite.
 
 2. In CodeFresh once you have integrated your GKE cluster, you can navigate to the Kubernetes tab in Codefresh to deploy your back-end PostGreSQL DB and Redis services. Use the `deployment.yaml` and `service.yaml` files in the respective directories. When adding a new service, flip the `yaml` switch near the top and copy and paste the contents within the following files for : 
   - PostGreSQL
@@ -58,9 +57,9 @@ Instructions
     - [deployment.yaml](./redis/deployment.yaml)
     - [service.yaml](./redis/service.yaml)
 
-3. In Codefresh, [add the three repositories](https://g.codefresh.io/repositories?filter=view:all;mode:grid) from your Github account. The icon to *add repositories* is on the top right. The `codefresh.yaml` files in each directory should automatically set up the pipeline within the repository for you. **For your deployment, you will need to update:**
+3. In Codefresh, [add the three repositories](https://g.codefresh.io/repositories?filter=view:all;mode:grid) from your Github account ([vote](https://github.com/MayankTahil/vote), [result](https://github.com/MayankTahil/result), and [worker](https://github.com/MayankTahil/worker)). The icon to *add repositories* is on the top right. The `codefresh.yaml` files in each respective repository should automatically set up the pipeline within CodeFresh for you. **For your deployment, you will need to update:**
   * Which Kubernetes Cluster the pipeline deploys to (defined in the respective `codefresh.yaml` file)
-  * Which Docker Hub account/ registry  name to push (also defined in the respective `codefresh.yaml` file)
+  * Which Docker Hub account/ registry and image name to push (also defined in the respective `codefresh.yaml` file)
 
 4. Hit Build to deploy your workflow in CodeFresh.
 
