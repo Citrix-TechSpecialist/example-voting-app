@@ -18,7 +18,7 @@ spec:
       - args:
         - python
         - app.py
-        image: mayankt/vote
+        image: mayankt/vote:master
         name: vote
         ports:
         - containerPort: 80

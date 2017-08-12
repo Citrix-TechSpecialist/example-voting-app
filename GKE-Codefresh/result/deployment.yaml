@@ -19,7 +19,7 @@ spec:
         - nodemon
         - --debug
         - server.js
-        image: mayankt/vote
+        image: mayankt/result:master
         name: result
         ports:
         - containerPort: 80
