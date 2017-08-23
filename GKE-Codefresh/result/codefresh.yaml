@@ -13,4 +13,18 @@ steps:
     candidate: '${{BuildingDockerImage}}'
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     registry: dockerhub
+  RunningDeployScript:
+    title: Running Deploy Script
+    type: deploy
+    kind: kubernetes
+    cluster: servtech-kube@ServTech-Inc
+    namespace: st-demo
+    service: result
+    when:
+      branch:
+        only:
+          - master
+    candidate:
+      image: '${{BuildingDockerImage}}'
+      registry: dockerhub
 

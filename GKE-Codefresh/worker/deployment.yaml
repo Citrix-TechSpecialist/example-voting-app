@@ -15,7 +15,7 @@ spec:
         io.kompose.service: worker
     spec:
       containers:
-      - image: mayankt/worker
+      - image: mayankt/worker:master
         name: worker
         resources: {}
       restartPolicy: Always

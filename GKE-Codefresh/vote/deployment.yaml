@@ -19,6 +19,7 @@ spec:
         - python
         - app.py
         image: mayankt/vote:master
+        imagePullPolicy: Always
         name: vote
         ports:
         - containerPort: 80

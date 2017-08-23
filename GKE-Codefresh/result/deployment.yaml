@@ -20,6 +20,7 @@ spec:
         - --debug
         - server.js
         image: mayankt/result:master
+        imagePullPolicy: Always
         name: result
         ports:
         - containerPort: 80
