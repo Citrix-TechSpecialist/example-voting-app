@@ -63,7 +63,7 @@ Instructions
 
 4. Hit Build to deploy your workflow in CodeFresh.
 
-![microservices](./images/microservices.png)
+![microservices](./images/n-tier-app.png)
 
 Note
 ----
